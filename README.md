@@ -1,9 +1,6 @@
 # Library Inventory CLI
 
-## Overview
-
-The Library Inventory CLI is a command-line interface (CLI) application written in Java that allows users to manage a library inventory system. The project demonstrates the use of Object-Oriented Programming (OOP) principles and incorporates advanced concepts such as design patterns, collections framework, streams, and custom exceptions.
-
+ 
 ## Key Features
 
 - **Add Books**: Add different types of books to the library inventory (e.g., Physical Books, E-Books, and Audio Books).
@@ -43,18 +40,7 @@ The Library Inventory CLI is a command-line interface (CLI) application written 
 - **Library**: Singleton class that acts as the central inventory manager. It holds the list of books and provides methods to add, remove, search, and list books.
 - **BookFactory**: Implements the Factory Design Pattern to create different types of books based on user input.
 - **LibraryInventoryCLI**: Main class that provides the CLI interface for user interaction.
-
-## How It Works
-
-### User Interaction
-- Users interact with the application through a text-based menu.
-- Each menu option triggers specific operations on the library inventory.
-
-### Singleton Library
-- The `Library` class ensures that all operations are performed on a single instance of the library.
-
-### Dynamic Book Creation
-- The `BookFactory` dynamically creates `Book` objects based on the type specified by the user.
+ 
 
 ### Data Storage
 - The application uses an `ArrayList` to store the library's inventory of books.
