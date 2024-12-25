@@ -7,8 +7,8 @@ The Library Inventory CLI is a command-line interface (CLI) application written 
 ## Key Features
 
 - **Add Books**: Add different types of books to the library inventory (e.g., Physical Books, E-Books, and Audio Books).
-- **Remove Books**: Remove books from the inventory using their ISBN.
-- **Search Books**: Search for books by title, author, or genre.
+- **Remove Books**: Remove books from the inventory using their BookId.
+- **Search Books**: Search for books by title, author, or category.
 - **List All Books**: Display all books currently in the library inventory.
 
 ## Technologies and Concepts Used
@@ -37,7 +37,7 @@ The Library Inventory CLI is a command-line interface (CLI) application written 
 ## Project Structure
 
 ### Classes
-- **Book (Base Class)**: Represents a generic book with attributes like title, author, genre, and ISBN.
+- **Book (Base Class)**: Represents a generic book with attributes like title, author, category, and bookid.
 - **EBook (Subclass)**: Represents an electronic book.
 - **AudioBook (Subclass)**: Represents an audiobook.
 - **Library**: Singleton class that acts as the central inventory manager. It holds the list of books and provides methods to add, remove, search, and list books.
