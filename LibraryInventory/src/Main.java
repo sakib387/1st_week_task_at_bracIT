@@ -48,18 +48,18 @@ public class Main {
                     String id=scanner.nextLine();
 
                     try{
-                        library.update(id);
+                        library.updateBook(id);
                     }
                     catch (Exception e){
                         System.out.println(e);
                     }
                     break;
                 case 3:
-                    library.show_book();
+                    library.showBook();
                     break;
                 case 4:
                     try {
-                        library.delete();
+                        library.deleteBook();
                     }
                     catch (Exception e){
                         System.out.println(e);

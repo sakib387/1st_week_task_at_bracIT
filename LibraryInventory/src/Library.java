@@ -29,7 +29,7 @@ public class Library {
 
     }
 
-    public void update(String Id) throws BookNotFoundException {
+    public void updateBook(String Id) throws BookNotFoundException {
 
 
         Book book = this.books.stream()
@@ -70,7 +70,7 @@ public class Library {
     }
 
 
-    public  void show_book(){
+    public  void showBook(){
         System.out.println("Enter your choice \n1.show all books\n2.show book by title \n3.show book by author\n4 show book by year");
         Scanner scanner=new Scanner(System.in);
         Integer choice=scanner.nextInt();scanner.nextLine();
@@ -124,7 +124,7 @@ public class Library {
 
         }
     }
-    public void delete() throws  BookNotFoundException{
+    public void deleteBook() throws  BookNotFoundException{
         System.out.println("Enter book Id which one you want to delete");
         Scanner scanner =new Scanner(System.in);
         String id=scanner.nextLine();
