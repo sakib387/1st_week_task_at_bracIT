@@ -5,38 +5,38 @@ import java.util.Scanner;
 public class Main {
 
     public static void main(String[] args) {
-        BookFactory bf=new BookFactory();
+        BookFactory bookFactory=new BookFactory();
         Library library=Library.getLibraryInstance();
         System.out.println("Welcome to our Library");
 
         while (true){
-            Scanner sc=new Scanner(System.in);
+            Scanner scanner=new Scanner(System.in);
             System.out.println("Enter your choice \n1.Add book\n2.Update book\n3.show all book or filtered data \n4.Delete book ");
-            int choice=sc.nextInt();sc.nextLine();
+            int choice=scanner.nextInt();scanner.nextLine();
             switch (choice)
             {
                 case 1:
                     try {
                         System.out.println("Enter Book Type (e.g., ebook, audiobook):");
-                        String type = sc.nextLine();
+                        String type = scanner.nextLine();
 
                         System.out.println("Enter Book ID:");
-                        String bookId = sc.nextLine();
+                        String bookId = scanner.nextLine();
 
                         System.out.println("Enter Book Title:");
-                        String title = sc.nextLine();
+                        String title = scanner.nextLine();
 
                         System.out.println("Enter Book Author:");
-                        String author = sc.nextLine();
+                        String author = scanner.nextLine();
 
                         System.out.println("Enter Book publish year:");
-                        Integer pubYear = sc.nextInt();sc.nextLine();
+                        Integer pubYear = scanner.nextInt();scanner.nextLine();
 
                         System.out.println("Enter Book Category:");
-                        String genre = sc.nextLine();
+                        String genre = scanner.nextLine();
 
 
-                        library.addBooks(bf.createBook(type,bookId,title,author,pubYear,genre));
+                        library.addBooks(bookFactory.createBook(type,bookId,title,author,pubYear,genre));
                     }
                     catch (Exception e){
                         System.out.println(e);
@@ -45,7 +45,7 @@ public class Main {
                     break;
                 case 2:
                     System.out.println("Enter book id to update book details..");
-                    String id=sc.nextLine();
+                    String id=scanner.nextLine();
 
                     try{
                         library.update(id);

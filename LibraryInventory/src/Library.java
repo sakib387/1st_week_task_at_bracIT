@@ -6,16 +6,16 @@ import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Library {
-    private static  Library instance=null;
+    private static  Library libraryInstance=null;
     private List<Book> books;
     private Library(){
            books=new ArrayList<>();
     }
     public  static Library getLibraryInstance(){
-        if(instance==null){
-            instance=new Library();
+        if(libraryInstance==null){
+            libraryInstance=new Library();
         }
-        return instance;
+        return libraryInstance;
     }
 
     public void addBooks( Book  book ) throws AlreadyExistException{
@@ -40,19 +40,19 @@ public class Library {
         if (book == null) {
             throw new BookNotFoundException("No book found with the given Id: " + Id);
         } else {
-            Scanner sc = new Scanner(System.in);
+            Scanner scanner = new Scanner(System.in);
 
 
             System.out.println("Enter title (or press Enter to skip):");
-            String title = sc.nextLine();
+            String title = scanner.nextLine();
 
             // Input for author
             System.out.println("Enter author (or press Enter to skip):");
-            String author = sc.nextLine();
+            String author = scanner.nextLine();
 
             // Input for category
             System.out.println("Enter category (or press Enter to skip):");
-            String category = sc.nextLine();
+            String category = scanner.nextLine();
 
             // Update the book details if the new values are not empty
             if (!title.isEmpty()) {
@@ -72,8 +72,8 @@ public class Library {
 
     public  void show_book(){
         System.out.println("Enter your choice \n1.show all books\n2.show book by title \n3.show book by author\n4 show book by year");
-        Scanner sc=new Scanner(System.in);
-        Integer choice=sc.nextInt();sc.nextLine();
+        Scanner scanner=new Scanner(System.in);
+        Integer choice=scanner.nextInt();scanner.nextLine();
         switch (choice){
             case 1:
                 if(this.books.stream().count()==0){
@@ -87,7 +87,7 @@ public class Library {
                 break;
             case 2:
                 System.out.println("Enter book title");
-                String title=sc.nextLine();
+                String title=scanner.nextLine();
                 List<Book> data=this.books.stream().filter(b->b.getTitle().equals(title)).collect(Collectors.toList());
                 if(data.isEmpty()){
                     System.out.println("Not found any books by this title" );
@@ -98,7 +98,7 @@ public class Library {
             break;
             case 3:
                 System.out.println("Enter book author");
-                String author=sc.nextLine();
+                String author=scanner.nextLine();
                 List<Book> data1=this.books.stream().filter(b->b.getAuthor().equals(author)).collect(Collectors.toList());
                 if(data1.isEmpty()){
                     System.out.println("Not found any books by this author");
@@ -109,7 +109,7 @@ public class Library {
                 break;
             case 4:
                 System.out.println("Enter book pusblished year");
-                Integer year=sc.nextInt();
+                Integer year=scanner.nextInt();
                 List<Book> data2=this.books.stream().filter(b->b.getPubYear().equals(year)).collect(Collectors.toList());
                 if(data2.isEmpty()){
                     System.out.println("Not found any books by this year");
@@ -126,8 +126,8 @@ public class Library {
     }
     public void delete() throws  BookNotFoundException{
         System.out.println("Enter book Id which one you want to delete");
-        Scanner sc =new Scanner(System.in);
-        String id=sc.nextLine();
+        Scanner scanner =new Scanner(System.in);
+        String id=scanner.nextLine();
         Book book = this.books.stream()
                 .filter(b -> b.getBookId().equals(id))
                 .findFirst()
