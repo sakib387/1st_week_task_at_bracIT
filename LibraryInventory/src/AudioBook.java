@@ -1,7 +1,10 @@
+
 public class AudioBook extends  Book{
-    public AudioBook(String title, String author, String genre, String isbn) {
-        super(title, author, genre, isbn);
+    public AudioBook(String bookId, String title, String author, Integer pubYear, String genre) {
+        super(bookId, title, author, pubYear, genre);
     }
+
+
 
     @Override
     public String toString() {

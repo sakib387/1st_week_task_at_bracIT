@@ -2,13 +2,52 @@ public class Book {
     private  String title;
     private String author;
     private String genre;
-    private String isbn;
+    private String bookId;
+    private Integer pubYear;
 
-    public Book(String title, String author, String genre, String isbn) {
+    public Book(String bookId,String title, String author,Integer pubYear, String genre) {
+        this.bookId = bookId;
         this.title = title;
         this.author = author;
+        this.pubYear=pubYear;
         this.genre = genre;
-        this.isbn = isbn;
+
+    }
+
+    public void setPubYear(Integer pubYear) {
+        this.pubYear = pubYear;
+    }
+
+    public Integer getPubYear() {
+        return pubYear;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public String getCategory() {
+        return genre;
+    }
+
+    public String getBookId() {
+        return bookId;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public void setCategory(String genre) {
+        this.genre = genre;
     }
 
     @Override
@@ -17,7 +56,8 @@ public class Book {
                 "title='" + title + '\'' +
                 ", author='" + author + '\'' +
                 ", genre='" + genre + '\'' +
-                ", isbn='" + isbn + '\'' +
+                ", bookId='" + bookId + '\'' +
+                ", pubYear=" + pubYear +
                 '}';
     }
 }

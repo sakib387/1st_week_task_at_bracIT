@@ -1,6 +1,8 @@
+
 public class Ebook extends  Book{
-    public Ebook(String title, String author, String genre, String isbn) {
-        super(title, author, genre, isbn);
+
+    public Ebook(String bookId, String title, String author, Integer pubYear, String genre) {
+        super(bookId, title, author, pubYear, genre);
     }
 
     @Override
