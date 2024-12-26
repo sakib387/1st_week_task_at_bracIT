@@ -124,22 +124,22 @@ public class Library {
 
         }
     }
-    public void delete(){
+    public void delete() throws  BookNotFoundException{
         System.out.println("Enter book Id which one you want to delete");
         Scanner sc =new Scanner(System.in);
         String id=sc.nextLine();
-        List<Book> data=this.books.stream().filter(b->b.getBookId().equals(id)).collect(Collectors.toList());
-        if(data.isEmpty()){
-            System.out.println("Not found any books by this id" );
-        }
-        Iterator<Book> iterator=books.iterator();
-        while (iterator.hasNext()){
-            Book book=iterator.next();
-            if(book.getBookId()==id)
-            {
-                System.out.println(book.getBookId() +" "+id);
-                iterator.remove();break;
-            }
+        Book book = this.books.stream()
+                .filter(b -> b.getBookId().equals(id))
+                .findFirst()
+                .orElse(null);
+
+        // Check if the book was found
+        if (book == null) {
+            throw new BookNotFoundException("No book found with the given Id: " + id);
+        } else {
+            // Remove the book from the collection
+            this.books.remove(book);
+            System.out.println("Book with Id " + id + " has been deleted.");
         }
 
     }

@@ -58,7 +58,13 @@ public class Main {
                     library.show_book();
                     break;
                 case 4:
-                    library.delete();
+                    try {
+                        library.delete();
+                    }
+                    catch (Exception e){
+                        System.out.println(e);
+                    }
+
                     break;
 
                 default:
