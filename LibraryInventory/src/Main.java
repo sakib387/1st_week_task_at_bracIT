@@ -17,7 +17,7 @@ public class Main {
             {
                 case 1:
                     try {
-                        System.out.println("Enter Book Type (e.g., ebook, paperback):");
+                        System.out.println("Enter Book Type (e.g., ebook, audiobook):");
                         String type = sc.nextLine();
 
                         System.out.println("Enter Book ID:");
@@ -44,6 +44,7 @@ public class Main {
 
                     break;
                 case 2:
+                    System.out.println("Enter book id to update book details..");
                     String id=sc.nextLine();
 
                     try{
@@ -61,7 +62,7 @@ public class Main {
                     break;
 
                 default:
-                    System.out.println("Invalid choice. Please try again.");
+                    System.out.println("Invalid choice. GOOD BUY.");
                     return;
 
 

@@ -2,6 +2,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class Library {
@@ -24,12 +25,12 @@ public class Library {
             throw new AlreadyExistException("Already exist a book with this book id pls try new Id ");
         }
         this.books.add(book);
-        System.out.println("Book added"+this.books.stream().count());
+        System.out.println("Book added successfully..") ;
 
     }
 
     public void update(String Id) throws BookNotFoundException {
-        System.out.println(Id);
+
 
         Book book = this.books.stream()
                 .filter(b -> b.getBookId().equals(Id))
@@ -83,37 +84,43 @@ public class Library {
                         System.out.println(b);
                     }
                 }
+                break;
             case 2:
+                System.out.println("Enter book title");
                 String title=sc.nextLine();
-                Stream<Book> data=this.books.stream().filter(b->b.getTitle().equals(title));
-                if(data.count()==0){
-                    System.out.println("Not found any books by this title");
+                List<Book> data=this.books.stream().filter(b->b.getTitle().equals(title)).collect(Collectors.toList());
+                if(data.isEmpty()){
+                    System.out.println("Not found any books by this title" );
                 }
                 else{
                     data.forEach(b->System.out.println(b));
                 }
-
+            break;
             case 3:
+                System.out.println("Enter book author");
                 String author=sc.nextLine();
-                Stream<Book> data1=this.books.stream().filter(b->b.getTitle().equals(author));
-                if(data1.count()==0){
+                List<Book> data1=this.books.stream().filter(b->b.getAuthor().equals(author)).collect(Collectors.toList());
+                if(data1.isEmpty()){
                     System.out.println("Not found any books by this author");
                 }
                 else{
                     data1.forEach(b->System.out.println(b));
                 }
+                break;
             case 4:
+                System.out.println("Enter book pusblished year");
                 Integer year=sc.nextInt();
-                Stream<Book> data2=this.books.stream().filter(b->b.getTitle().equals(year));
-                if(data2.count()==0){
+                List<Book> data2=this.books.stream().filter(b->b.getPubYear().equals(year)).collect(Collectors.toList());
+                if(data2.isEmpty()){
                     System.out.println("Not found any books by this year");
                 }
                 else{
                     data2.forEach(b->System.out.println(b));
                 }
+                break;
             default:
                 System.out.println("Invalid choice try again");
-                break;
+                return;
 
         }
     }
@@ -121,11 +128,16 @@ public class Library {
         System.out.println("Enter book Id which one you want to delete");
         Scanner sc =new Scanner(System.in);
         String id=sc.nextLine();
+        List<Book> data=this.books.stream().filter(b->b.getBookId().equals(id)).collect(Collectors.toList());
+        if(data.isEmpty()){
+            System.out.println("Not found any books by this id" );
+        }
         Iterator<Book> iterator=books.iterator();
         while (iterator.hasNext()){
             Book book=iterator.next();
-            if(book.getBookId().equals(id));
+            if(book.getBookId()==id)
             {
+                System.out.println(book.getBookId() +" "+id);
                 iterator.remove();break;
             }
         }
